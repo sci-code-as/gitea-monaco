@@ -1,9 +1,9 @@
 steps:
   - id: 'build and push container'
     name: 'gcr.io/kaniko-project/executor:latest'
-    timeout: 1500s
     args: [
       '--context=dir://cloudbuilder/gitea-monaco',
       '--destination=gcr.io/$PROJECT_ID/giteamonaco',
       '--cleanup',
     ]
+timeout: 1500s
