@@ -1,19 +1,19 @@
 steps:
-  - id: 'install dependencies'
+  - id: 'clone repo'
     name: 'bitnami/git:latest'
     args: ['clone', 'https://github.com/ozonep/gitea-monaco']
     dir: 'cloudbuilder'
 
 
-  - id: 'install dependencies'
+  - id: 'fetch everything'
     name: 'bitnami/git:latest'
     args: ['fetch', '--tags', '--force']
-    dir: 'cloudbuilder'
+    dir: 'cloudbuilder/gitea-monaco'
 
   - id: 'build and push container'
     name: 'gcr.io/kaniko-project/executor:latest'
     args: [
-      '--context=dir://cloudbuilder/',
+      '--context=dir://cloudbuilder/gitea-monaco',
       '--destination=gcr.io/$PROJECT_ID/giteamonaco',
       '--cleanup',
     ]
