@@ -1,11 +1,9 @@
 steps:
-  - id: 'install dependencies'
-    name: 'bitnami/git:latest'
-    args: ['fetch', '--tags', '--force']
-
   - id: 'build and push container'
     name: 'gcr.io/kaniko-project/executor:latest'
+    timeout: 1500s
     args: [
+      '--context=dir://cloudbuilder/gitea-monaco',
       '--destination=gcr.io/$PROJECT_ID/giteamonaco',
       '--cleanup',
     ]
