@@ -1,7 +1,6 @@
 steps:
   - id: 'install dependencies'
-    name: 'docker:git'
-    entrypoint: git
+    name: 'bitnami/git:latest'
     args: ['fetch', '--tags', '--force']
 
   - id: 'build and push container'
