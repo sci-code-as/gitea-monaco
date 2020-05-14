@@ -1,0 +1,12 @@
+steps:
+  - id: 'install dependencies'
+    name: 'docker:git'
+    entrypoint: git
+    args: ['fetch', '--tags', '--force']
+
+  - id: 'build and push container'
+    name: 'gcr.io/kaniko-project/executor:latest'
+    args: [
+      '--destination=gcr.io/$PROJECT_ID/giteamonaco',
+      '--cleanup',
+    ]
