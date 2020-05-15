@@ -16,7 +16,6 @@ import (
 	_ "image/jpeg" // for processing jpeg images
 	_ "image/png"  // for processing png images
 	"io"
-	"net/http"
 	"strconv"
 	"strings"
 

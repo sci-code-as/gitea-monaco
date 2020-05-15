@@ -6,7 +6,6 @@ package upload
 
 import (
 	"fmt"
-	"net/http"
 	"strings"
 
 	"code.gitea.io/gitea/modules/log"
