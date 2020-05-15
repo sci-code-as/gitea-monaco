@@ -58,6 +58,7 @@
     "updates": "10.2.11"
   },
   "browserslist": [
-    "defaults"
+    "last 2 Chrome versions",
+    "node 12"
   ]
 }
