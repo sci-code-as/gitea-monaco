@@ -867,3 +867,6 @@ xorm.io/xorm/log
 xorm.io/xorm/names
 xorm.io/xorm/schemas
 xorm.io/xorm/tags
+# github.com/gabriel-vasile/mimetype v1.1.0
+## explicit
+github.com/gabriel-vasile/mimetype
