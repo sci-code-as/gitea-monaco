@@ -20,7 +20,8 @@ for (const path of glob('web_src/less/themes/*.less')) {
   themes[parse(path).name] = [path];
 }
 
-const isProduction = process.env.NODE_ENV !== 'development';
+// const isProduction = process.env.NODE_ENV !== 'development';
+const isProduction = true;
 
 module.exports = {
   mode: isProduction ? 'production' : 'development',
