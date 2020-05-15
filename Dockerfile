@@ -13,7 +13,7 @@ RUN echo "${ALPINE_MIRROR}/edge/main" >> /etc/apk/repositories
 
 
 #Build deps
-RUN apk --no-cache add build-base git nodejs npm  --repository="http://dl-cdn.alpinelinux.org/alpine/edge/main"
+RUN apk --no-cache add build-base git nodejs-current npm  --repository="http://dl-cdn.alpinelinux.org/alpine/edge/community"
 
 #Setup repo
 COPY . ${GOPATH}/src/code.gitea.io/gitea
