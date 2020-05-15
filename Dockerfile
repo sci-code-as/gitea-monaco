@@ -36,7 +36,6 @@ RUN apk --no-cache add \
     linux-pam \
     openssh \
     s6 \
-    sqlite \
     su-exec \
     tzdata \
     gnupg
