@@ -33,7 +33,7 @@ func (w *compressResponseWriter) Header() http.Header {
 func (w *compressResponseWriter) Write(b []byte) (int, error) {
 	h := w.ResponseWriter.Header()
 	if h.Get("Content-Type") == "" {
-		h.Set("Content-Type", mimetype.Detect(b))
+		h.Set("Content-Type", mimetype.Detect(b).String())
 	}
 	h.Del("Content-Length")
 

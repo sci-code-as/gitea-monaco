@@ -138,7 +138,7 @@ func (c *Commit) ParentCount() int {
 }
 
 func isImageFile(data []byte) (string, bool) {
-	contentType := mimetype.Detect(data)
+	contentType := mimetype.Detect(data).String()
 	if strings.Contains(contentType, "image/") {
 		return contentType, true
 	}

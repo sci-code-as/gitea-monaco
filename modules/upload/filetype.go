@@ -30,7 +30,7 @@ func (err ErrFileTypeForbidden) Error() string {
 
 // VerifyAllowedContentType validates a file is allowed to be uploaded.
 func VerifyAllowedContentType(buf []byte, allowedTypes []string) error {
-	fileType := mimetype.Detect(buf)
+	fileType := mimetype.Detect(buf).String()
 
 	for _, t := range allowedTypes {
 		t := strings.Trim(t, " ")

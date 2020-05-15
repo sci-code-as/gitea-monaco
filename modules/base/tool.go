@@ -355,27 +355,27 @@ func IsTextFile(data []byte) bool {
 	if len(data) == 0 {
 		return true
 	}
-	return strings.Contains(mimetype.Detect(data), "text/")
+	return strings.Contains(mimetype.Detect(data).String(), "text/")
 }
 
 // IsImageFile detects if data is an image format
 func IsImageFile(data []byte) bool {
-	return strings.Contains(mimetype.Detect(data), "image/")
+	return strings.Contains(mimetype.Detect(data).String(), "image/")
 }
 
 // IsPDFFile detects if data is a pdf format
 func IsPDFFile(data []byte) bool {
-	return strings.Contains(mimetype.Detect(data), "application/pdf")
+	return strings.Contains(mimetype.Detect(data).String(), "application/pdf")
 }
 
 // IsVideoFile detects if data is an video format
 func IsVideoFile(data []byte) bool {
-	return strings.Contains(mimetype.Detect(data), "video/")
+	return strings.Contains(mimetype.Detect(data).String(), "video/")
 }
 
 // IsAudioFile detects if data is an video format
 func IsAudioFile(data []byte) bool {
-	return strings.Contains(mimetype.Detect(data), "audio/")
+	return strings.Contains(mimetype.Detect(data).String(), "audio/")
 }
 
 // EntryIcon returns the octicon class for displaying files/directories

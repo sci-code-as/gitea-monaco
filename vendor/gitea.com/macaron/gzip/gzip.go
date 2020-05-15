@@ -213,7 +213,7 @@ func (proxy *ProxyResponseWriter) Write(b []byte) (int, error) {
 		if contentLength >= MinSize || len(proxy.buf) >= MinSize {
 			// if we don't know the content type, infer it
 			if contentType == "" {
-				contentType = mimetype.Detect(proxy.buf)
+				contentType = mimetype.Detect(proxy.buf).String()
 				proxy.Header().Set(contentTypeHeader, contentType)
 			}
 			// If the Content-Type is not compressed - Compress!
