@@ -19,7 +19,7 @@ WORKDIR ${GOPATH}/src/code.gitea.io/gitea
 RUN make clean-all build
 
 FROM alpine:3.11
-LABEL maintainer="maintainers@gitea.io"
+LABEL maintainer="ivan@sci-code.com"
 
 EXPOSE 22 3000
 

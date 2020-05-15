@@ -24,7 +24,7 @@ func IsConfiguration(path string) bool {
 // IsImage tells if a given file is an image (PNG, JPEG or GIF format).
 func IsImage(path string) bool {
 	extension := filepath.Ext(path)
-	if extension == ".png" || extension == ".jpg" || extension == ".jpeg" || extension == ".gif" {
+	if extension == ".png" || extension == ".jpg" || extension == ".svg" || extension == ".jpeg" || extension == ".gif" {
 		return true
 	}
 

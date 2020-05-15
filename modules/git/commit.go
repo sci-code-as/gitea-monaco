@@ -21,6 +21,7 @@ import (
 	"strings"
 
 	"github.com/go-git/go-git/v5/plumbing/object"
+	"github.com/gabriel-vasile/mimetype"
 )
 
 // Commit represents a git commit.
@@ -137,7 +138,7 @@ func (c *Commit) ParentCount() int {
 }
 
 func isImageFile(data []byte) (string, bool) {
-	contentType := http.DetectContentType(data)
+	contentType := mimetype.Detect(data)
 	if strings.Contains(contentType, "image/") {
 		return contentType, true
 	}

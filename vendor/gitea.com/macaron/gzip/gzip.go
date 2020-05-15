@@ -17,6 +17,7 @@ import (
 
 	"gitea.com/macaron/macaron"
 	"github.com/klauspost/compress/gzip"
+	"github.com/gabriel-vasile/mimetype"
 )
 
 const (
@@ -212,7 +213,7 @@ func (proxy *ProxyResponseWriter) Write(b []byte) (int, error) {
 		if contentLength >= MinSize || len(proxy.buf) >= MinSize {
 			// if we don't know the content type, infer it
 			if contentType == "" {
-				contentType = http.DetectContentType(proxy.buf)
+				contentType = mimetype.Detect(proxy.buf)
 				proxy.Header().Set(contentTypeHeader, contentType)
 			}
 			// If the Content-Type is not compressed - Compress!

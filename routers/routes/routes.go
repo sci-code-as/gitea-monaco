@@ -1035,8 +1035,8 @@ func RegisterRoutes(m *macaron.Macaron) {
 		}
 	})
 
-	m.Get("/apple-touch-icon.png", func(ctx *context.Context) {
-		ctx.Redirect(path.Join(setting.StaticURLPrefix, "img/apple-touch-icon.png"), 301)
+	m.Get("/apple-touch-icon.svg", func(ctx *context.Context) {
+		ctx.Redirect(path.Join(setting.StaticURLPrefix, "img/apple-touch-icon.svg"), 301)
 	})
 
 	// Progressive Web App

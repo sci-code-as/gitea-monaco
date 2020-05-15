@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
+	"github.com/gabriel-vasile/mimetype"
 )
 
 // WriteTo implements io.WriterTo. It dumps the whole message into w.

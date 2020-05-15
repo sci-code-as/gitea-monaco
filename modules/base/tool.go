@@ -28,6 +28,7 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/unknwon/com"
+	"github.com/gabriel-vasile/mimetype"
 )
 
 // EncodeMD5 encodes string to md5 hex value.
@@ -142,7 +143,7 @@ func HashEmail(email string) string {
 
 // DefaultAvatarLink the default avatar link
 func DefaultAvatarLink() string {
-	return setting.AppSubURL + "/img/avatar_default.png"
+	return setting.AppSubURL + "/img/avatar_default.svg"
 }
 
 // DefaultAvatarSize is a sentinel value for the default avatar size, as
@@ -354,27 +355,27 @@ func IsTextFile(data []byte) bool {
 	if len(data) == 0 {
 		return true
 	}
-	return strings.Contains(http.DetectContentType(data), "text/")
+	return strings.Contains(mimetype.Detect(data), "text/")
 }
 
 // IsImageFile detects if data is an image format
 func IsImageFile(data []byte) bool {
-	return strings.Contains(http.DetectContentType(data), "image/")
+	return strings.Contains(mimetype.Detect(data), "image/")
 }
 
 // IsPDFFile detects if data is a pdf format
 func IsPDFFile(data []byte) bool {
-	return strings.Contains(http.DetectContentType(data), "application/pdf")
+	return strings.Contains(mimetype.Detect(data), "application/pdf")
 }
 
 // IsVideoFile detects if data is an video format
 func IsVideoFile(data []byte) bool {
-	return strings.Contains(http.DetectContentType(data), "video/")
+	return strings.Contains(mimetype.Detect(data), "video/")
 }
 
 // IsAudioFile detects if data is an video format
 func IsAudioFile(data []byte) bool {
-	return strings.Contains(http.DetectContentType(data), "audio/")
+	return strings.Contains(mimetype.Detect(data), "audio/")
 }
 
 // EntryIcon returns the octicon class for displaying files/directories

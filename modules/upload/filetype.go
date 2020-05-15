@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"code.gitea.io/gitea/modules/log"
+	"github.com/gabriel-vasile/mimetype"
 )
 
 // ErrFileTypeForbidden not allowed file type error
@@ -29,7 +30,7 @@ func (err ErrFileTypeForbidden) Error() string {
 
 // VerifyAllowedContentType validates a file is allowed to be uploaded.
 func VerifyAllowedContentType(buf []byte, allowedTypes []string) error {
-	fileType := http.DetectContentType(buf)
+	fileType := mimetype.Detect(buf)
 
 	for _, t := range allowedTypes {
 		t := strings.Trim(t, " ")

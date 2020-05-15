@@ -55,7 +55,7 @@ the url `http://gitea.domain.tld/image.png`.
 
 ## Changing the default avatar
 
-Place the png image at the following path: `custom/public/img/avatar_default.png`
+Place the png image at the following path: `custom/public/img/avatar_default.svg`
 
 ## Customizing Gitea pages and resources
 

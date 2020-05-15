@@ -84,7 +84,7 @@ func enableGravatar(t *testing.T) {
 
 func TestSizedAvatarLink(t *testing.T) {
 	disableGravatar()
-	assert.Equal(t, "/img/avatar_default.png",
+	assert.Equal(t, "/img/avatar_default.svg",
 		SizedAvatarLink("gitea@example.com", 100))
 
 	enableGravatar(t)

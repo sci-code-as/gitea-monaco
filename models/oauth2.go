@@ -22,10 +22,10 @@ type OAuth2Provider struct {
 // key is used to map the OAuth2Provider with the goth provider type (also in LoginSource.OAuth2Config.Provider)
 // value is used to store display data
 var OAuth2Providers = map[string]OAuth2Provider{
-	"bitbucket": {Name: "bitbucket", DisplayName: "Bitbucket", Image: "/img/auth/bitbucket.png"},
-	"dropbox":   {Name: "dropbox", DisplayName: "Dropbox", Image: "/img/auth/dropbox.png"},
-	"facebook":  {Name: "facebook", DisplayName: "Facebook", Image: "/img/auth/facebook.png"},
-	"github": {Name: "github", DisplayName: "GitHub", Image: "/img/auth/github.png",
+	"bitbucket": {Name: "bitbucket", DisplayName: "Bitbucket", Image: "/img/auth/bitbucket.svg"},
+	"dropbox":   {Name: "dropbox", DisplayName: "Dropbox", Image: "/img/auth/dropbox.svg"},
+	"facebook":  {Name: "facebook", DisplayName: "Facebook", Image: "/img/auth/facebook.svg"},
+	"github": {Name: "github", DisplayName: "GitHub", Image: "/img/auth/github.svg",
 		CustomURLMapping: &oauth2.CustomURLMapping{
 			TokenURL:   oauth2.GetDefaultTokenURL("github"),
 			AuthURL:    oauth2.GetDefaultAuthURL("github"),
@@ -33,32 +33,32 @@ var OAuth2Providers = map[string]OAuth2Provider{
 			EmailURL:   oauth2.GetDefaultEmailURL("github"),
 		},
 	},
-	"gitlab": {Name: "gitlab", DisplayName: "GitLab", Image: "/img/auth/gitlab.png",
+	"gitlab": {Name: "gitlab", DisplayName: "GitLab", Image: "/img/auth/gitlab.svg",
 		CustomURLMapping: &oauth2.CustomURLMapping{
 			TokenURL:   oauth2.GetDefaultTokenURL("gitlab"),
 			AuthURL:    oauth2.GetDefaultAuthURL("gitlab"),
 			ProfileURL: oauth2.GetDefaultProfileURL("gitlab"),
 		},
 	},
-	"gplus":         {Name: "gplus", DisplayName: "Google", Image: "/img/auth/google.png"},
+	"gplus":         {Name: "gplus", DisplayName: "Google", Image: "/img/auth/google.svg"},
 	"openidConnect": {Name: "openidConnect", DisplayName: "OpenID Connect", Image: "/img/auth/openid_connect.svg"},
-	"twitter":       {Name: "twitter", DisplayName: "Twitter", Image: "/img/auth/twitter.png"},
-	"discord":       {Name: "discord", DisplayName: "Discord", Image: "/img/auth/discord.png"},
-	"gitea": {Name: "gitea", DisplayName: "Gitea", Image: "/img/auth/gitea.png",
+	"twitter":       {Name: "twitter", DisplayName: "Twitter", Image: "/img/auth/twitter.svg"},
+	"discord":       {Name: "discord", DisplayName: "Discord", Image: "/img/auth/discord.svg"},
+	"gitea": {Name: "gitea", DisplayName: "Gitea", Image: "/img/diggit.svg",
 		CustomURLMapping: &oauth2.CustomURLMapping{
 			TokenURL:   oauth2.GetDefaultTokenURL("gitea"),
 			AuthURL:    oauth2.GetDefaultAuthURL("gitea"),
 			ProfileURL: oauth2.GetDefaultProfileURL("gitea"),
 		},
 	},
-	"nextcloud": {Name: "nextcloud", DisplayName: "Nextcloud", Image: "/img/auth/nextcloud.png",
+	"nextcloud": {Name: "nextcloud", DisplayName: "Nextcloud", Image: "/img/auth/nextcloud.svg",
 		CustomURLMapping: &oauth2.CustomURLMapping{
 			TokenURL:   oauth2.GetDefaultTokenURL("nextcloud"),
 			AuthURL:    oauth2.GetDefaultAuthURL("nextcloud"),
 			ProfileURL: oauth2.GetDefaultProfileURL("nextcloud"),
 		},
 	},
-	"yandex": {Name: "yandex", DisplayName: "Yandex", Image: "/img/auth/yandex.png"},
+	"yandex": {Name: "yandex", DisplayName: "Yandex", Image: "/img/auth/yandex.svg"},
 }
 
 // OAuth2DefaultCustomURLMappings contains the map of default URL's for OAuth2 providers that are allowed to have custom urls
