@@ -7,9 +7,13 @@ ENV GOPROXY ${GOPROXY:-direct}
 
 ARG GITEA_VERSION
 ENV TAGS "bindata"
+ENV ALPINE_MIRROR "http://dl-cdn.alpinelinux.org/alpine"
+
+RUN echo "${ALPINE_MIRROR}/edge/main" >> /etc/apk/repositories
+
 
 #Build deps
-RUN apk --no-cache add build-base git nodejs npm
+RUN apk --no-cache add build-base git nodejs-current npm  --repository="http://dl-cdn.alpinelinux.org/alpine/edge/community"
 
 #Setup repo
 COPY . ${GOPATH}/src/code.gitea.io/gitea
