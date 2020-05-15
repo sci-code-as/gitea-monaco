@@ -43,9 +43,9 @@ function initCommentPreviewTab($form) {
       _csrf: csrf,
       mode: 'gfm',
       context: $this.data('context'),
-      text: $form.find(`.tab.segment[data-tab="${$tabMenu.data('write')}"] textarea`).val()
+      text: $form.find(`.tab[data-tab="${$tabMenu.data('write')}"] textarea`).val()
     }, (data) => {
-      const $previewPanel = $form.find(`.tab.segment[data-tab="${$tabMenu.data('preview')}"]`);
+      const $previewPanel = $form.find(`.tab[data-tab="${$tabMenu.data('preview')}"]`);
       $previewPanel.html(data);
       $('pre code', $previewPanel[0]).each(function () {
         highlight(this);
@@ -74,9 +74,9 @@ function initEditPreviewTab($form) {
         _csrf: csrf,
         mode: 'gfm',
         context,
-        text: $form.find(`.tab.segment[data-tab="${$tabMenu.data('write')}"] textarea`).val()
+        text: $form.find(`.tab[data-tab="${$tabMenu.data('write')}"] textarea`).val()
       }, (data) => {
-        const $previewPanel = $form.find(`.tab.segment[data-tab="${$tabMenu.data('preview')}"]`);
+        const $previewPanel = $form.find(`.tab[data-tab="${$tabMenu.data('preview')}"]`);
         $previewPanel.html(data);
         $('pre code', $previewPanel[0]).each(function () {
           highlight(this);
@@ -94,9 +94,9 @@ function initEditDiffTab($form) {
     $.post($this.data('url'), {
       _csrf: csrf,
       context: $this.data('context'),
-      content: $form.find(`.tab.segment[data-tab="${$tabMenu.data('write')}"] textarea`).val()
+      content: $form.find(`.tab[data-tab="${$tabMenu.data('write')}"] textarea`).val()
     }, (data) => {
-      const $diffPreviewPanel = $form.find(`.tab.segment[data-tab="${$tabMenu.data('diff')}"]`);
+      const $diffPreviewPanel = $form.find(`.tab[data-tab="${$tabMenu.data('diff')}"]`);
       $diffPreviewPanel.html(data);
     });
   });
@@ -535,8 +535,8 @@ function initCommentForm() {
           break;
         case '#assignee_id':
           $list.find('.selected').html(`<a class="item" href=${$(this).data('href')}>` +
-                        `<img class="ui avatar image" src=${$(this).data('avatar')}>${
-                          htmlEncode($(this).text())}</a>`);
+            `<img class="ui avatar image" src=${$(this).data('avatar')}>${
+              htmlEncode($(this).text())}</a>`);
       }
       $(`.ui${select_id}.list .no-select`).addClass('hide');
       $(input_id).val($(this).data('id'));
@@ -971,8 +971,8 @@ async function initRepository() {
         $tabMenu.attr('data-preview', $editContentZone.data('preview'));
         $tabMenu.find('.write.item').attr('data-tab', $editContentZone.data('write'));
         $tabMenu.find('.preview.item').attr('data-tab', $editContentZone.data('preview'));
-        $editContentForm.find('.write.segment').attr('data-tab', $editContentZone.data('write'));
-        $editContentForm.find('.preview.segment').attr('data-tab', $editContentZone.data('preview'));
+        $editContentForm.find('.write').attr('data-tab', $editContentZone.data('write'));
+        $editContentForm.find('.preview').attr('data-tab', $editContentZone.data('preview'));
         $simplemde = setCommentSimpleMDE($textarea);
         commentMDEditors[$editContentZone.data('write')] = $simplemde;
         initCommentPreviewTab($editContentForm);
@@ -1161,7 +1161,7 @@ function initMigration() {
     const authUserName = $('#auth_username').val();
     const cloneAddr = $('#clone_addr').val();
     if (!$('#mirror').is(':checked') && (authUserName && authUserName.length > 0) &&
-        (cloneAddr !== undefined && (cloneAddr.startsWith('https://github.com') || cloneAddr.startsWith('http://github.com') || cloneAddr.startsWith('http://gitlab.com') || cloneAddr.startsWith('https://gitlab.com')))) {
+      (cloneAddr !== undefined && (cloneAddr.startsWith('https://github.com') || cloneAddr.startsWith('http://github.com') || cloneAddr.startsWith('http://gitlab.com') || cloneAddr.startsWith('https://gitlab.com')))) {
       $('#migrate_items').show();
     } else {
       $('#migrate_items').hide();
@@ -2045,9 +2045,9 @@ function initU2FAuth() {
           });
       });
     }).catch(() => {
-      // Fallback in case browser do not support U2F
-      window.location.href = `${AppSubUrl}/user/two_factor`;
-    });
+    // Fallback in case browser do not support U2F
+    window.location.href = `${AppSubUrl}/user/two_factor`;
+  });
 }
 function u2fSigned(resp) {
   $.ajax({
