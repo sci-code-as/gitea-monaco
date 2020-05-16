@@ -2,7 +2,7 @@ steps:
   - id: 'build and push container'
     name: 'gcr.io/kaniko-project/executor:latest'
     args: [
-      '--destination=gcr.io/$PROJECT_ID/giteamonaco',
+      '--destination=gcr.io/$PROJECT_ID/giteamonacoprism',
       '--cleanup',
     ]
 timeout: 1500s
