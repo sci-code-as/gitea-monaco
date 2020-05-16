@@ -27,93 +27,64 @@ var (
 	}
 
 	// Extensions that are same as highlight classes.
-	// See hljs.listLanguages() for list of language names.
 	highlightExts = map[string]struct{}{
-		".applescript": {},
-		".arm":         {},
-		".as":          {},
-		".bash":        {},
-		".bat":         {},
-		".c":           {},
-		".cmake":       {},
-		".cpp":         {},
-		".cs":          {},
-		".css":         {},
-		".dart":        {},
-		".diff":        {},
-		".django":      {},
-		".go":          {},
-		".gradle":      {},
-		".groovy":      {},
-		".haml":        {},
-		".handlebars":  {},
-		".html":        {},
-		".ini":         {},
-		".java":        {},
-		".json":        {},
-		".less":        {},
-		".lua":         {},
-		".php":         {},
-		".scala":       {},
-		".scss":        {},
-		".sql":         {},
-		".swift":       {},
-		".ts":          {},
-		".xml":         {},
-		".yaml":        {},
+		".c":          {},
+		".cpp":        {},
+		".css":        {},
+		".dart":       {},
+		".diff":       {},
+		".elixir":     {},
+		".erlang":     {},
+		".go":         {},
+		".html":       {},
+		".yaml":       {},
+		".ini":        {},
+		".j":          {},
+		".java":       {},
+		".js":         {},
+		".json":       {},
+		".jsx":        {},
+		".less":       {},
+		".lua":        {},
+		".php":        {},
+		".properties": {},
+		".scala":      {},
+		".scss":       {},
+		".sql":        {},
+		".swift":      {},
+		".ts":         {},
+		".tsx":        {},
+		".xml":        {},
 	}
 
 	// Extensions that are not same as highlight classes.
 	highlightMapping = map[string]string{
-		".ahk":     "autohotkey",
-		".crmsh":   "crmsh",
-		".dash":    "shell",
-		".erl":     "erlang",
-		".escript": "erlang",
-		".ex":      "elixir",
-		".exs":     "elixir",
-		".f":       "fortran",
-		".f77":     "fortran",
-		".f90":     "fortran",
-		".f95":     "fortran",
-		".feature": "gherkin",
-		".fish":    "shell",
-		".for":     "fortran",
-		".hbs":     "handlebars",
-		".hs":      "haskell",
-		".hx":      "haxe",
-		".js":      "javascript",
-		".jsx":     "javascript",
-		".ksh":     "shell",
-		".kt":      "kotlin",
-		".l":       "ocaml",
-		".ls":      "livescript",
-		".md":      "markdown",
-		".mjs":     "javascript",
-		".mli":     "ocaml",
-		".mll":     "ocaml",
-		".mly":     "ocaml",
-		".patch":   "diff",
-		".pl":      "perl",
-		".pm":      "perl",
-		".ps1":     "powershell",
-		".psd1":    "powershell",
-		".psm1":    "powershell",
-		".py":      "python",
-		".pyw":     "python",
-		".rb":      "ruby",
-		".rs":      "rust",
-		".scpt":    "applescript",
-		".scptd":   "applescript",
-		".sh":      "bash",
-		".tcsh":    "shell",
-		".ts":      "typescript",
-		".tsx":     "typescript",
-		".txt":     "plaintext",
-		".vb":      "vbnet",
-		".vbs":     "vbscript",
-		".yml":     "yaml",
-		".zsh":     "shell",
+		".as":    "actionscript",
+		".aspx":  "aspnet",
+		".bat":   "batch",
+		".cmd":   "batch",
+		".cs":    "csharp",
+		".fnc":   "plsql",
+		".hs":    "haskell",
+		".yml":   "yaml",
+		".ino":   "arduino",
+		".kt":    "kotlin",
+		".ktm":   "kotlin",
+		".kts":   "kotlin",
+		".m":     "matlab",
+		".mlx":   "matlab",
+		".pas":   "pascal",
+		".patch": "diff",
+		".py":    "python",
+		".pkb":   "plsql",
+		".pkg":   "plsql",
+		".pks":   "plsql",
+		".ps1":   "powershell",
+		".rb":    "ruby",
+		".s":     "nasm",
+		".sh":    "bash",
+		".tex":   "latex",
+		".vb":    "vbnet",
 	}
 )
 
@@ -134,18 +105,18 @@ func FileNameToHighlightClass(fname string) string {
 	}
 
 	if name, ok := highlightFileNames[fname]; ok {
-		return name
+		return "language-" + name
 	}
 
 	ext := path.Ext(fname)
 	if _, ok := highlightExts[ext]; ok {
-		return ext[1:]
+		return "language-" + ext[1:]
 	}
 
 	name, ok := highlightMapping[ext]
 	if ok {
-		return name
+		return "language-" + name
 	}
 
-	return ""
+	return "nohighlight"
 }

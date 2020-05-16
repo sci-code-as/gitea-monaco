@@ -119,7 +119,9 @@
 {{if .RequireSimpleMDE}}
 	<link rel="stylesheet" href="{{StaticUrlPrefix}}/vendor/plugins/simplemde/simplemde.min.css">
 {{end}}
-
+{{if .RequireHighlightJS}}
+	<link rel="stylesheet" href="{{AppSubUrl}}/vendor/plugins/prism/prism.css">
+{{end}}
 {{if .RequireTribute}}
 	<link rel="stylesheet" href="{{StaticUrlPrefix}}/vendor/plugins/tribute/tribute.css">
 {{end}}
