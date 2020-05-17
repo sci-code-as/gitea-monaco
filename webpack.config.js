@@ -238,6 +238,7 @@ module.exports = {
     }),
     new MonacoWebpackPlugin({
       filename: 'js/monaco-[name].worker.js',
+      languages: []
     }),
   ],
   performance: {

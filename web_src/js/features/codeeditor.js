@@ -1,4 +1,5 @@
 import {basename, extname, isObject, isDarkTheme} from '../utils.js';
+import {createGrammarStore} from "./monacowasm";
 
 const languagesByFilename = {};
 const languagesByExt = {};
@@ -11,15 +12,37 @@ function getEditorconfig(input) {
   }
 }
 
-function initLanguages(monaco) {
-  for (const {filenames, extensions, id} of monaco.languages.getLanguages()) {
-    for (const filename of filenames || []) {
-      languagesByFilename[filename] = id;
-    }
-    for (const extension of extensions || []) {
-      languagesByExt[extension] = id;
-    }
+const grammarConfigurations = [
+  { language: 'css', extension: '.css', scopeName: 'source.css', url: '/grammars/css.tmLanguage.json' },
+  { language: 'go', extension: '.go', scopeName: 'source.go', url: '/grammars/go.tmLanguage.json' },
+  { language: 'html', extension: '.html', scopeName: 'text.html.basic', url: '/grammars/html.tmLanguage.json' },
+  { language: 'javascript', extension: '.js', scopeName: 'source.js', url: '/grammars/JavaScript.tmLanguage.json' },
+  { language: 'javascriptreact', extension: '.jsx', scopeName: 'source.js.jsx', url: '/grammars/JavaScriptReact.tmLanguage.json' },
+  { language: 'json', extension: '.json', scopeName: 'source.json', url: '/grammars/JSON.tmLanguage.json' },
+  { language: 'python', extension: '.py', scopeName: 'source.python', url: '/grammars/MagicPython.tmLanguage.json' },
+  { language: 'markdown', extension: '.md', scopeName: 'text.html.markdown', url: '/grammars/markdown.tmLanguage.json' },
+  { language: 'typescript', extension: '.ts', scopeName: 'source.ts', url: '/grammars/TypeScript.tmLanguage.json' },
+  { language: 'yaml', extension: '.yaml', scopeName: 'source.yaml', url: '/grammars/yaml.tmLanguage.json' },
+];
+
+async function registerEncodedTokensProviders(grammarConfigurations, monaco) {
+  const scopeNameToTextMateGrammarURL = new Map(grammarConfigurations.map(({ scopeName, url }) => [scopeName, url]));
+  const grammarStore = await createGrammarStore(scopeNameToTextMateGrammarURL);
+  for (const { language, scopeName } of grammarConfigurations) {
+    const tokensProvider = await grammarStore.createEncodedTokensProvider(scopeName);
+    monaco.languages.setTokensProvider(language, tokensProvider);
   }
+}
+
+async function initLanguages(monaco) {
+  for (const { language, extension } of grammarConfigurations) {
+    monaco.languages.register({
+      id: language,
+      extensions: [],
+    });
+    languagesByExt[extension] = id;
+  }
+  await registerEncodedTokensProviders(grammarConfigurations, monaco);
 }
 
 function getLanguage(filename) {
@@ -51,8 +74,11 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
     }
   }
 
-  const monaco = await import(/* webpackChunkName: "monaco" */'monaco-editor');
-  initLanguages(monaco);
+  //const monaco = await import(/* webpackChunkName: "monaco" */'monaco-editor/esm/vs/editor/editor.api');
+  const monaco = await import('monaco-editor/esm/vs/editor/editor.api');
+  import { createGrammarStore } from './monacowasm.js';
+
+  await initLanguages(monaco);
 
   const container = document.createElement('div');
   container.className = 'monaco-editor-container';
@@ -61,6 +87,9 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
   const editor = monaco.editor.create(container, {
     value: textarea.value,
     language: getLanguage(filename),
+    minimap: {
+      enabled: false,
+    },
     ...getOptions(filenameInput, lineWrapExts),
   });
 
