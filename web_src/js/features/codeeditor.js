@@ -1,5 +1,6 @@
 import {basename, extname, isObject, isDarkTheme} from '../utils.js';
-import {createGrammarStore} from "./monacowasm";
+import { createGrammarStore } from './monacowasm.js';
+
 
 const languagesByFilename = {};
 const languagesByExt = {};
@@ -25,7 +26,7 @@ const grammarConfigurations = [
   { language: 'yaml', extension: '.yaml', scopeName: 'source.yaml', url: '/grammars/yaml.tmLanguage.json' },
 ];
 
-async function registerEncodedTokensProviders(grammarConfigurations, monaco) {
+async function registerEncodedTokensProviders(monaco) {
   const scopeNameToTextMateGrammarURL = new Map(grammarConfigurations.map(({ scopeName, url }) => [scopeName, url]));
   const grammarStore = await createGrammarStore(scopeNameToTextMateGrammarURL);
   for (const { language, scopeName } of grammarConfigurations) {
@@ -42,7 +43,7 @@ async function initLanguages(monaco) {
     });
     languagesByExt[extension] = id;
   }
-  await registerEncodedTokensProviders(grammarConfigurations, monaco);
+  await registerEncodedTokensProviders(monaco);
 }
 
 function getLanguage(filename) {
@@ -76,7 +77,6 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
 
   //const monaco = await import(/* webpackChunkName: "monaco" */'monaco-editor/esm/vs/editor/editor.api');
   const monaco = await import('monaco-editor/esm/vs/editor/editor.api');
-  import { createGrammarStore } from './monacowasm.js';
 
   await initLanguages(monaco);
 
