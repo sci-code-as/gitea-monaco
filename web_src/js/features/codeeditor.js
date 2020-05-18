@@ -18,7 +18,7 @@ const grammarConfigurations = [
   { language: 'go', extension: '.go', scopeName: 'source.go', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/go.tmLanguage.json' },
   { language: 'html', extension: '.html', scopeName: 'text.html.basic', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/html.tmLanguage.json' },
   { language: 'javascript', extension: '.js', scopeName: 'source.js', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/JavaScript.tmLanguage.json' },
-  { language: 'javascriptreact', extension: '.jsx', scopeName: 'source.js.jsx', url: '/grammars/JavaScriptReact.tmLanguage.json' },
+  { language: 'javascriptreact', extension: '.jsx', scopeName: 'source.js.jsx', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/JavaScriptReact.tmLanguage.json' },
   { language: 'json', extension: '.json', scopeName: 'source.json', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/JSON.tmLanguage.json' },
   { language: 'python', extension: '.py', scopeName: 'source.python', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/MagicPython.tmLanguage.json' },
   { language: 'markdown', extension: '.md', scopeName: 'text.html.markdown', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/markdown.tmLanguage.json' },
