@@ -71,7 +71,7 @@ async function createRegistry(scopeNameToTextMateGrammarURL) {
 }
 
 async function loadVSCodeOnigurumWASM() {
-  const response = await fetch('https://storage.cloud.google.com/giteaassets/onig.wasm?');
+  const response = await fetch('https://storage.cloud.google.com/giteaassets/onig.wasm');
   const contentType = response.headers.get('content-type');
   if (contentType === 'application/wasm') {
     return response;
