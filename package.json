@@ -61,6 +61,6 @@
   },
   "browserslist": [
     "last 2 Chrome versions",
-    "node 14"
+    "node 12"
   ]
 }

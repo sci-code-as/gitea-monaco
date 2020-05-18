@@ -71,7 +71,7 @@ async function createRegistry(scopeNameToTextMateGrammarURL) {
 }
 
 async function loadVSCodeOnigurumWASM() {
-  const response = await fetch('/node_modules/vscode-oniguruma/release/onig.wasm');
+  const response = await fetch('./onig.wasm');
   const contentType = response.headers.get('content-type');
   if (contentType === 'application/wasm') {
     return response;
