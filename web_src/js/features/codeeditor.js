@@ -41,7 +41,7 @@ async function initLanguages(monaco) {
       id: language,
       extensions: [],
     });
-    languagesByExt[extension] = id;
+    languagesByExt[extension] = language;
   }
   await registerEncodedTokensProviders(monaco);
 }
