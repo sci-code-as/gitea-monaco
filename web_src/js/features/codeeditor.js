@@ -14,16 +14,16 @@ function getEditorconfig(input) {
 }
 
 const grammarConfigurations = [
-  { language: 'css', extension: '.css', scopeName: 'source.css', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/css.tmLanguage.json' },
-  { language: 'go', extension: '.go', scopeName: 'source.go', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/go.tmLanguage.json' },
-  { language: 'html', extension: '.html', scopeName: 'text.html.basic', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/html.tmLanguage.json' },
-  { language: 'javascript', extension: '.js', scopeName: 'source.js', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/JavaScript.tmLanguage.json' },
-  { language: 'javascriptreact', extension: '.jsx', scopeName: 'source.js.jsx', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/JavaScriptReact.tmLanguage.json' },
-  { language: 'json', extension: '.json', scopeName: 'source.json', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/JSON.tmLanguage.json' },
-  { language: 'python', extension: '.py', scopeName: 'source.python', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/MagicPython.tmLanguage.json' },
-  { language: 'markdown', extension: '.md', scopeName: 'text.html.markdown', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/markdown.tmLanguage.json' },
-  { language: 'typescript', extension: '.ts', scopeName: 'source.ts', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/TypeScript.tmLanguage.json' },
-  { language: 'yaml', extension: '.yaml', scopeName: 'source.yaml', url: 'https://raw.githubusercontent.com/ozonep/gitea-monaco/tokenizers/web_src/js/features/grammars/yaml.tmLanguage.json' },
+  { language: 'css', extension: '.css', scopeName: 'source.css', url: 'https://storage.cloud.google.com/giteaassets/grammars/css.tmLanguage.json' },
+  { language: 'go', extension: '.go', scopeName: 'source.go', url: 'https://storage.cloud.google.com/giteaassets/grammars/go.tmLanguage.json' },
+  { language: 'html', extension: '.html', scopeName: 'text.html.basic', url: 'https://storage.cloud.google.com/giteaassets/grammars/html.tmLanguage.json' },
+  { language: 'javascript', extension: '.js', scopeName: 'source.js', url: 'https://storage.cloud.google.com/giteaassets/grammars/JavaScript.tmLanguage.json' },
+  { language: 'javascriptreact', extension: '.jsx', scopeName: 'source.js.jsx', url: 'https://storage.cloud.google.com/giteaassets/grammars/JavaScriptReact.tmLanguage.json' },
+  { language: 'json', extension: '.json', scopeName: 'source.json', url: 'https://storage.cloud.google.com/giteaassets/grammars/JSON.tmLanguage.json' },
+  { language: 'python', extension: '.py', scopeName: 'source.python', url: 'https://storage.cloud.google.com/giteaassets/grammars/MagicPython.tmLanguage.json' },
+  { language: 'markdown', extension: '.md', scopeName: 'text.html.markdown', url: 'https://storage.cloud.google.com/giteaassets/grammars/markdown.tmLanguage.json' },
+  { language: 'typescript', extension: '.ts', scopeName: 'source.ts', url: 'https://storage.cloud.google.com/giteaassets/grammars/TypeScript.tmLanguage.json' },
+  { language: 'yaml', extension: '.yaml', scopeName: 'source.yaml', url: 'https://storage.cloud.google.com/giteaassets/grammars/yaml.tmLanguage.json' },
 ];
 
 async function registerEncodedTokensProviders(monaco) {
