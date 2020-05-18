@@ -75,7 +75,6 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
     }
   }
 
-  //const monaco = await import(/* webpackChunkName: "monaco" */'monaco-editor/esm/vs/editor/editor.api');
   const monaco = await import('monaco-editor/esm/vs/editor/editor.api');
 
   await initLanguages(monaco);
