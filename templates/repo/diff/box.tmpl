@@ -69,7 +69,7 @@
 						</div>
 						<span class="file">{{$file.Name}}</span>
 						<div>{{$.i18n.Tr "repo.diff.file_suppressed"}}</div>
-						{{if not $file.IsSubmodule}}
+						{{if and (not $file.IsSubmodule) (not $.PageIsWiki)}}
 							{{if $file.IsDeleted}}
 								<a class="ui basic grey tiny button" rel="nofollow" href="{{EscapePound $.BeforeSourcePath}}/{{EscapePound .Name}}">{{$.i18n.Tr "repo.diff.view_file"}}</a>
 							{{else}}
@@ -103,7 +103,7 @@
 							{{end}}
 						</div>
 						<span class="file">{{if $file.IsRenamed}}{{$file.OldName}} &rarr; {{end}}{{$file.Name}}{{if .IsLFSFile}} ({{$.i18n.Tr "repo.stored_lfs"}}){{end}}</span>
-						{{if not $file.IsSubmodule}}
+						{{if and (not $file.IsSubmodule) (not $.PageIsWiki)}}
 							{{if $file.IsDeleted}}
 								<a class="ui basic grey tiny button" rel="nofollow" href="{{EscapePound $.BeforeSourcePath}}/{{EscapePound .Name}}">{{$.i18n.Tr "repo.diff.view_file"}}</a>
 							{{else}}
@@ -192,7 +192,7 @@
 																<td class="add-comment-right">
 																	{{if and $resolved (eq $line.GetCommentSide "proposed")}}
 																		<div class="ui top attached header">
-																			<span class="ui grey text left"><b>{{$resolveDoer.Name}}</b> {{$.i18n.Tr "repo.issues.review.resolved_by"}}</span>	
+																			<span class="ui grey text left"><b>{{$resolveDoer.Name}}</b> {{$.i18n.Tr "repo.issues.review.resolved_by"}}</span>
 																			<button id="show-outdated-{{(index $line.Comments 0).ID}}" data-comment="{{(index $line.Comments 0).ID}}" class="ui compact right labeled button show-outdated">
 																				{{svg "octicon-unfold" 16}}
 																				{{$.i18n.Tr "repo.issues.review.show_resolved"}}
@@ -200,7 +200,7 @@
 																			<button id="hide-outdated-{{(index $line.Comments 0).ID}}" data-comment="{{(index $line.Comments 0).ID}}" class="hide ui compact right labeled button hide-outdated">
 																				{{svg "octicon-fold" 16}}
 																				{{$.i18n.Tr "repo.issues.review.hide_resolved"}}
-																			</button>	
+																			</button>
 																		</div>
 																	{{end}}
 																	{{if eq $line.GetCommentSide "proposed"}}
