@@ -67,8 +67,7 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
     ...getOptions(filenameInput, lineWrapExts),
   });
 
-  import('https://cdn.jsdelivr.net/npm/monaco-themes@0.3.3/themes/Tomorrow-Night-Bright.json')
-    .then(data => {
+  import('./tomorrow-theme.json').then(data => {
       monaco.editor.defineTheme('tomorrow', data);
     })
 
