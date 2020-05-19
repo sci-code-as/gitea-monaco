@@ -3,11 +3,7 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    src:
-        local('Roboto'),
-        local('Roboto-Regular'),
-        /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('../vendor/assets/roboto-fonts/roboto-v20-latin-ext_cyrillic-ext_latin_greek_vietnamese_cyrillic_greek-ext-regular.woff2') format('woff2'),
+    src: url('../vendor/assets/roboto-fonts/roboto-v20-latin-ext_cyrillic-ext_latin_greek_vietnamese_cyrillic_greek-ext-regular.woff2') format('woff2'),
 }
 
 /* roboto-italic - latin-ext_cyrillic-ext_latin_greek_vietnamese_cyrillic_greek-ext */
@@ -15,11 +11,7 @@
     font-family: 'Roboto';
     font-style: italic;
     font-weight: 400;
-    src:
-        local('Roboto Italic'),
-        local('Roboto-Italic'),
-        /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('../vendor/assets/roboto-fonts/roboto-v20-latin-ext_cyrillic-ext_latin_greek_vietnamese_cyrillic_greek-ext-italic.woff2') format('woff2'),
+    src: url('../vendor/assets/roboto-fonts/roboto-v20-latin-ext_cyrillic-ext_latin_greek_vietnamese_cyrillic_greek-ext-italic.woff2') format('woff2'),
 }
 
 /* roboto-700 - latin-ext_cyrillic-ext_latin_greek_vietnamese_cyrillic_greek-ext */
@@ -27,11 +19,7 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    src:
-        local('Roboto Bold'),
-        local('Roboto-Bold'),
-        /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('../vendor/assets/roboto-fonts/roboto-v20-latin-ext_cyrillic-ext_latin_greek_vietnamese_cyrillic_greek-ext-700.woff2') format('woff2'),
+    src: url('../vendor/assets/roboto-fonts/roboto-v20-latin-ext_cyrillic-ext_latin_greek_vietnamese_cyrillic_greek-ext-700.woff2') format('woff2'),
 }
 
 /* roboto-700italic - latin-ext_cyrillic-ext_latin_greek_vietnamese_cyrillic_greek-ext */
@@ -39,11 +27,7 @@
     font-family: 'Roboto';
     font-style: italic;
     font-weight: 700;
-    src:
-        local('Roboto Bold Italic'),
-        local('Roboto-BoldItalic'),
-        /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('../vendor/assets/roboto-fonts/roboto-v20-latin-ext_cyrillic-ext_latin_greek_vietnamese_cyrillic_greek-ext-700italic.woff2') format('woff2'),
+    src: url('../vendor/assets/roboto-fonts/roboto-v20-latin-ext_cyrillic-ext_latin_greek_vietnamese_cyrillic_greek-ext-700italic.woff2') format('woff2'),
 }
 
 @font-face {
@@ -310,11 +294,11 @@ code,
 }
 
 .ui {
-    &.left {
+    &.left:not(.action) {
         float: left;
     }
 
-    &.right {
+    &.right:not(.action) {
         float: right;
     }
 
@@ -717,6 +701,15 @@ code,
             .item:not(.active):not(.navigation),
             .item.navigation span.navigation_label {
                 display: none;
+            }
+        }
+        &.narrow .item {
+            padding-left: 8px;
+            padding-right: 8px;
+            min-width: 1em;
+            text-align: center;
+            .icon {
+                margin-right: 0;
             }
         }
     }
@@ -1140,13 +1133,10 @@ i.icon.centerlock {
 
 .code-view {
     overflow: auto;
-    overflow-x: auto;
     overflow-y: hidden;
 
     &.has-context-menu {
         overflow: visible;
-        overflow-x: visible;
-        overflow-y: visible;
     }
 
     *:not(.fa):not(.svg):not(.icon) {
@@ -1160,7 +1150,7 @@ i.icon.centerlock {
     }
 
     .lines-code .active {
-        background: #fff866;
+        background: #fff6af;
     }
 }
 
@@ -1217,7 +1207,7 @@ i.icon.centerlock {
 }
 
 /* https://github.com/go-gitea/gitea/issues/10210 */
-.ui.attached.segment + .ui.attached.header {
+.ui.attached.segment ~ .ui.top.attached.header {
     margin-top: 1rem;
 }
 

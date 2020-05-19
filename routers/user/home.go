@@ -626,7 +626,7 @@ func Issues(ctx *context.Context) {
 	}
 
 	ctx.Data["IssueRefEndNames"], ctx.Data["IssueRefURLs"] =
-        		issue_service.GetRefEndNamesAndURLs(issues, ctx.Query("RepoLink"))
+		issue_service.GetRefEndNamesAndURLs(issues, ctx.Query("RepoLink"))
 
 	ctx.Data["Issues"] = issues
 	ctx.Data["ApprovalCounts"] = func(issueID int64, typ string) int64 {

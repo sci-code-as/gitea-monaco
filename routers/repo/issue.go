@@ -287,7 +287,7 @@ func issues(ctx *context.Context, milestoneID int64, isPullOption util.OptionalB
 	}
 
 	ctx.Data["IssueRefEndNames"], ctx.Data["IssueRefURLs"] =
-        		issue_service.GetRefEndNamesAndURLs(issues, ctx.Repo.RepoLink)
+		issue_service.GetRefEndNamesAndURLs(issues, ctx.Repo.RepoLink)
 
 	ctx.Data["ApprovalCounts"] = func(issueID int64, typ string) int64 {
 		counts, ok := approvalCounts[issueID]

@@ -211,7 +211,7 @@ var migrations = []Migration{
 	// v138 -> v139
 	NewMigration("Add ResolveDoerID to Comment table", addResolveDoerIDCommentColumn),
 	// v139 -> v140
-        NewMigration("prepend refs/heads/ to issue refs", prependRefsHeadsToIssueRefs),
+	NewMigration("prepend refs/heads/ to issue refs", prependRefsHeadsToIssueRefs),
 }
 
 // GetCurrentDBVersion returns the current db version

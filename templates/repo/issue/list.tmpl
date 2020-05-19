@@ -248,8 +248,8 @@
 						{{end}}
 						{{if .Ref}}
 							<a class="ref" href="{{index $.IssueRefURLs .ID}}">
-                            	{{svg "octicon-git-branch" 16}} {{index $.IssueRefEndNames .ID}}
-                            </a>
+								{{svg "octicon-git-branch" 16}} {{index $.IssueRefEndNames .ID}}
+							</a>
 						{{end}}
 						{{$tasks := .GetTasks}}
 						{{if gt $tasks 0}}
