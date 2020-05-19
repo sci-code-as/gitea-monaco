@@ -26,6 +26,7 @@ FROM alpine:3.11
 LABEL maintainer="ivan@sci-code.com"
 
 EXPOSE 22 3000
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
 
 RUN apk --no-cache add \
     bash \
@@ -38,7 +39,7 @@ RUN apk --no-cache add \
     s6 \
     su-exec \
     tzdata \
-    gnupg
+    gnupg --repository="http://dl-cdn.alpinelinux.org/alpine/edge/main"
 
 RUN addgroup \
     -S -g 1000 \
