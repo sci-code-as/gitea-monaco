@@ -67,8 +67,11 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
     ...getOptions(filenameInput, lineWrapExts),
   });
 
-  import('./tomorrow-theme.json').then(data => {
+  fetch('https://cdn.jsdelivr.net/npm/monaco-themes@0.3.3/themes/Tomorrow-Night-Bright.json')
+    .then(data => data.json())
+    .then(data => {
       monaco.editor.defineTheme('tomorrow', data);
+      monaco.editor.setTheme('tomorrow');
     })
 
   const model = editor.getModel();
@@ -93,7 +96,7 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
 
 function getOptions(filenameInput, lineWrapExts) {
   const ec = getEditorconfig(filenameInput);
-  const theme = isDarkTheme() ? 'tomorrow' : 'vs';
+  const theme = 'tomorrow';
   const wordWrap = (lineWrapExts || []).includes(extname(filenameInput.value)) ? 'on' : 'off';
 
   const opts = {theme, wordWrap};
