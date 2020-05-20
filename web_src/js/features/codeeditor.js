@@ -1,4 +1,6 @@
-import {basename, extname, isObject, isDarkTheme} from '../utils.js';
+import {basename, extname, isObject} from '../utils.js';
+import fetch from 'cross-fetch';
+
 
 const languagesByFilename = {};
 const languagesByExt = {};
