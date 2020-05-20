@@ -1,5 +1,4 @@
 import {basename, extname, isObject} from '../utils.js';
-import fetch from 'cross-fetch';
 
 
 const languagesByFilename = {};
@@ -54,7 +53,9 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
   }
 
   const monaco = await import(/* webpackChunkName: "monaco" */'monaco-editor');
+  const theme = await import('monaco-themes/themes/Monokai.json');
   initLanguages(monaco);
+  monaco.editor.defineTheme('monokai', theme);
 
   const container = document.createElement('div');
   container.className = 'monaco-editor-container';
@@ -69,12 +70,6 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
     ...getOptions(filenameInput, lineWrapExts),
   });
 
-  fetch('https://cdn.jsdelivr.net/npm/monaco-themes@0.3.3/themes/Tomorrow-Night-Bright.json')
-    .then(data => data.json())
-    .then(data => {
-      monaco.editor.defineTheme('tomorrow', data);
-      monaco.editor.setTheme('tomorrow');
-    })
 
   const model = editor.getModel();
   model.onDidChangeContent(() => {
@@ -98,7 +93,7 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
 
 function getOptions(filenameInput, lineWrapExts) {
   const ec = getEditorconfig(filenameInput);
-  const theme = 'tomorrow';
+  const theme = 'monokai';
   const wordWrap = (lineWrapExts || []).includes(extname(filenameInput.value)) ? 'on' : 'off';
 
   const opts = {theme, wordWrap};
