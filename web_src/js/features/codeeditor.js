@@ -53,9 +53,9 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
   }
 
   const monaco = await import(/* webpackChunkName: "monaco" */'monaco-editor');
-  const theme = await import('monaco-themes/themes/Monokai.json');
+  const theme = await import('monaco-themes/themes/Night Owl.json');
   initLanguages(monaco);
-  monaco.editor.defineTheme('monokai', theme);
+  monaco.editor.defineTheme('owl', theme);
 
   const container = document.createElement('div');
   container.className = 'monaco-editor-container';
@@ -93,7 +93,7 @@ export async function createCodeEditor(textarea, filenameInput, previewFileModes
 
 function getOptions(filenameInput, lineWrapExts) {
   const ec = getEditorconfig(filenameInput);
-  const theme = 'monokai';
+  const theme = 'owl';
   const wordWrap = (lineWrapExts || []).includes(extname(filenameInput.value)) ? 'on' : 'off';
 
   const opts = {theme, wordWrap};
