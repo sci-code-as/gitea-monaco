@@ -142,7 +142,7 @@ func HashEmail(email string) string {
 
 // DefaultAvatarLink the default avatar link
 func DefaultAvatarLink() string {
-	return setting.AppSubURL + "/img/avatar_default.svg"
+	return setting.AppSubURL + "/img/avatar_default.png"
 }
 
 // DefaultAvatarSize is a sentinel value for the default avatar size, as
