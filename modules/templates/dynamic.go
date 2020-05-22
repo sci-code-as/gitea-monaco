@@ -48,7 +48,6 @@ func JSONRenderer() macaron.Handler {
 	})
 }
 
-
 // Mailer provides the templates required for sending notification mails.
 func Mailer() (*texttmpl.Template, *template.Template) {
 	for _, funcs := range NewTextFuncMap() {

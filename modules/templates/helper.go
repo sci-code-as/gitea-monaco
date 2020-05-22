@@ -158,8 +158,8 @@ func NewFuncMap() []template.FuncMap {
 			return setting.UI.Meta.Keywords
 		},
 		"UseServiceWorker": func() bool {
-        			return setting.UI.UseServiceWorker
-        },
+			return setting.UI.UseServiceWorker
+		},
 		"FilenameIsImage": func(filename string) bool {
 			mimeType := mime.TypeByExtension(filepath.Ext(filename))
 			return strings.HasPrefix(mimeType, "image/")

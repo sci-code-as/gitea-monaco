@@ -1048,7 +1048,6 @@ func RegisterRoutes(m *macaron.Macaron) {
 		ctx.HTML(200, "pwa/manifest_json")
 	})
 
-
 	// prometheus metrics endpoint
 	if setting.Metrics.Enabled {
 		c := metrics.NewCollector()

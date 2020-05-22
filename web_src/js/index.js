@@ -2476,7 +2476,7 @@ $(document).ready(async () => {
     initGitGraph(),
     initClipboard(),
     initUserHeatmap(),
-    initServiceWorker()
+    initServiceWorker(),
   ]);
 });
 
