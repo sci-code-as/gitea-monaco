@@ -136,7 +136,7 @@ func WebhooksNew(ctx *context.Context) {
 	if hookType == "discord" {
 		ctx.Data["DiscordHook"] = map[string]interface{}{
 			"Username": "Gitea",
-			"IconURL":  setting.AppURL + "img/favicon.svg",
+			"IconURL":  setting.AppURL + "img/favicon.png",
 		}
 	}
 	ctx.Data["BaseLink"] = orCtx.Link
