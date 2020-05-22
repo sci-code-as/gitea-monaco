@@ -60,8 +60,10 @@
 	</script>
 	<script>
 		window.config = {
+			AppVer: '{{AppVer}}',
 			AppSubUrl: '{{AppSubUrl}}',
 			StaticUrlPrefix: '{{StaticUrlPrefix}}',
+			UseServiceWorker: {{UseServiceWorker}},
 			csrf: '{{.CsrfToken}}',
 			HighlightJS: {{if .RequireHighlightJS}}true{{else}}false{{end}},
 			Minicolors: {{if .RequireMinicolors}}true{{else}}false{{end}},
@@ -96,9 +98,6 @@
 	<link rel="stylesheet" href="{{StaticUrlPrefix}}/vendor/plugins/simplemde/simplemde.min.css">
 {{end}}
 
-{{if .RequireTribute}}
-	<link rel="stylesheet" href="{{StaticUrlPrefix}}/vendor/plugins/tribute/tribute.css">
-{{end}}
 	<link rel="stylesheet" href="{{StaticUrlPrefix}}/fomantic/semantic.min.css?v={{MD5 AppVer}}">
 	<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/index.css?v={{MD5 AppVer}}">
 	<noscript>
