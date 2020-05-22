@@ -14,6 +14,7 @@ import initGitGraph from './features/gitgraph.js';
 import initClipboard from './features/clipboard.js';
 import initUserHeatmap from './features/userheatmap.js';
 import initDateTimePicker from './features/datetimepicker.js';
+import initServiceWorker from './features/serviceworker.js';
 import {initTribute, issuesTribute, emojiTribute} from './features/tribute.js';
 import createDropzone from './features/dropzone.js';
 import highlight from './features/highlight.js';
@@ -2476,6 +2477,7 @@ $(document).ready(async () => {
     initGitGraph(),
     initClipboard(),
     initUserHeatmap(),
+    initServiceWorker()
   ]);
 });
 
@@ -3556,14 +3558,3 @@ $.get(`${window.config.StaticUrlPrefix}/img/svg/icons.svg`, (data) => {
   div.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
   document.body.insertBefore(div, document.body.childNodes[0]);
 });
-
-// remove any previously installed serviceworkers
-if ('serviceWorker' in navigator) {
-  try {
-    navigator.serviceWorker.getRegistrations().then((registrations) => {
-      for (const registration of registrations) {
-        registration.unregister();
-      }
-    });
-  } catch (_err) {}
-}
